@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milky Moo — Naturally Fresh</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <style>
+        .hero {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            padding: 50px 0;
+            background: #fff;
+        }
+
+        .hero-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-left h1 {
+            font-size: 52px;
+            margin: 0;
+            color: var(--blue);
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .hero-left p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin: 24px 0 0;
+        }
+
+        .hero-right {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .hero-right {
+            width: 100%;
+            height: 320px;
+            border-radius: 12px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+            overflow: hidden;
+        }
+
+        .features-section {
+            background: #f6f9fb;
+            padding: 40px 0;
+            margin: 40px 0;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .features-header h2 {
+            font-size: 28px;
+            color: #1671a8;
+            margin: 0 0 10px;
+        }
+
+        .features-header p {
+            font-size: 15px;
+            color: #666;
+            margin: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features {
+            display: flex;
+            gap: 30px;
+            margin: 0;
+        }
+
+        .feature {
+            flex: 1;
+            background: transparent;
+            padding: 0;
+            border: none;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .feature .icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            background: #e3f2fd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue);
+            font-weight: 700;
+            flex-shrink: 0;
+            font-size: 40px;
+        }
+
+        .feature h3 {
+            margin: 0;
+            color: #333;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .feature p {
+            margin: 0;
+            color: #666;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .sellers-section {
+            padding: 50px 0;
+        }
+
+        .sellers-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .sellers-header h2 {
+            font-size: 28px;
+            color: #1671a8;
+            margin: 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .sellers-header h2::before,
+        .sellers-header h2::after {
+            content: '—';
+            color: var(--blue);
+            margin: 0 15px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, #fff 0%, #f9fafb 100%);
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .product-card:hover {
+            box-shadow: 0 12px 24px rgba(55, 166, 230, 0.15);
+            transform: translateY(-6px) scale(1.02);
+            border-color: var(--blue);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 260px;
+            background: linear-gradient(135deg, #e8e8e8 0%, #f0f0f0 100%);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
+            background: linear-gradient(135deg, #d0d0d0 0%, #e0e0e0 100%);
+        }
+
+        .product-name {
+            font-size: 18px;
+            color: #333;
+            margin: 12px 0 8px;
+            font-weight: 600;
+        }
+
+        .product-price {
+            font-size: 16px;
+            color: var(--blue);
+            margin: 0 0 16px;
+            font-weight: 600;
+        }
+
+        .product-footer {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .product-footer a {
+            flex: 1;
+            background: transparent;
+            color: var(--blue);
+            padding: 8px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            border: 1px solid var(--blue);
+            transition: all 0.3s ease;
+        }
+
+        .product-footer a:hover {
+            background: #f5faff;
+            box-shadow: inset 0 0 0 2px var(--blue);
+        }
+
+        .product-add {
+            width: 40px;
+            height: 40px;
+            background: var(--blue);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(55, 166, 230, 0.3);
+        }
+
+        .product-add:hover {
+            background: #2195d6;
+            box-shadow: 0 6px 16px rgba(55, 166, 230, 0.4);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                padding: 30px 0;
+            }
+
+            .hero-left h1 {
+                font-size: 36px;
+            }
+
+            .features {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sellers-header h2::before,
+            .sellers-header h2::after {
+                margin: 0 8px;
+                content: '';
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-left h1 {
+                font-size: 28px;
+            }
+
+            .sellers-header h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container nav">
+            <div class="brand">
+                <div class="logo">
+                    <img src="logo/2.png" alt="Milky Moo Logo" class="logo-img">
+                </div>
+            </div>
+
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="search">
+                <input type="text" placeholder="Search" aria-label="Search products">
+            </div>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="#">Products</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Cart Icon (for customers only) -->
+                <a href="#" class="cart-icon" id="cartIcon" title="Shopping Cart" style="display: none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61l1.38-7.39H6"></path>
+                    </svg>
+                    <span class="cart-count" style="display: none;">0</span>
+                </a>
+
+                <!-- Guest Login (Show when not logged in) -->
+                <div class="customer-nav-collapsible" id="guestMenu">
+                    <div class="customer-nav-links open only-login">
+                        <a href="login.html">Login</a>
+                        <a href="signup.html">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HOME CONTENT -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-left">
+                <h1>naturally fresh, purely wholesome!</h1>
+            </div>
+            <div class="hero-right">
+                Hero image placeholder
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURES SECTION -->
+    <div class="features-section">
+        <div class="container">
+            <div class="features-header">
+                <h2>Fresh and wholesome.</h2>
+                <p>Thoughtfully produced, gently processed, and naturally fresh. dairy made for those who value purity & holiness.</p>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <div class="icon">🏠</div>
+                    <h3>Farm control</h3>
+                    <p>Direct from trusted local farms</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">✓</div>
+                    <h3>Quality first</h3>
+                    <p>Rigorous testing & standards</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">✨</div>
+                    <h3>Clean mode</h3>
+                    <p>No additives or preservatives</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BEST SELLERS SECTION -->
+    <div class="container">
+        <section class="sellers-section">
+            <div class="sellers-header">
+                <h2>Best seller of Milky Moo</h2>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">Product Image</div>
+                    <h3 class="product-name">Cow Milk 1L</h3>
+                    <p class="product-price">Price Rs 80</p>
+                    <div class="product-footer">
+                        <a href="#">Add to cart</a>
+                        <button class="product-add">+</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Product Image</div>
+                    <h3 class="product-name">Buffalo Milk 1L</h3>
+                    <p class="product-price">Price Rs 100</p>
+                    <div class="product-footer">
+                        <a href="#">Add to cart</a>
+                        <button class="product-add">+</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">Product Image</div>
+                    <h3 class="product-name">Yogurt 500g</h3>
+                    <p class="product-price">Price Rs 80</p>
+                    <div class="product-footer">
+                        <a href="#">Add to cart</a>
+                        <button class="product-add">+</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section footer-about">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Milky Moo Logo">
+                </div>
+                <p>Milky Moo! brings together fresh dairy & purity, offering thoughtfully made dairy for calm, everyday living.</p>
+                <div class="footer-social">
+                    <a href="https://facebook.com" target="_blank" class="social-icon" title="Follow us on Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="social-icon" title="Follow us on Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h3>Quick links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section footer-contact">
+                <h3>Contact</h3>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <a href="tel:+016600000">+01 6600000</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>Bhaktapur, Nepal</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <a href="mailto:milkymoo@example.com">milkymoo.com.np</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; All Copyright 2025 by Milky Moo.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (navLinks) navLinks.classList.toggle('active');
+            if (menuToggle) menuToggle.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.nav-links a')) {
+                const navLinks = document.getElementById('navLinks');
+                const menuToggle = document.querySelector('.menu-toggle');
+                if (navLinks) navLinks.classList.remove('active');
+                if (menuToggle) menuToggle.classList.remove('active');
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                const navLinks = document.getElementById('navLinks');
+                const menuToggle = document.querySelector('.menu-toggle');
+                if (navLinks) navLinks.classList.remove('active');
+                if (menuToggle) menuToggle.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

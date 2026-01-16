@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — Milky Moo</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <style>
+        .about-hero {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            padding: 36px 0;
+            margin-bottom: 28px;
+        }
+
+        .about-hero .hero-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-hero h1 {
+            font-size: 42px;
+            margin: 0 0 18px;
+            color: #1671a8;
+        }
+
+        .about-hero p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 28px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 32px;
+            color: var(--blue);
+            margin: 0;
+        }
+
+        .stat p {
+            font-size: 13px;
+            color: #666;
+            margin: 8px 0 0;
+        }
+
+        .about-hero .hero-right {
+            width: 350px;
+            height: 280px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #e9f6ff 0%, #f0faff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+            overflow: hidden;
+        }
+
+        .story-timeline {
+            display: grid;
+            gap: 24px;
+            margin: 28px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 16px;
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        .timeline-marker {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            background: var(--blue);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .timeline-content h3 {
+            color: #1671a8;
+            margin: 0 0 8px;
+        }
+
+        .timeline-content p {
+            color: #666;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .value-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .value-box:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .value-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .value-box h3 {
+            color: #1671a8;
+            margin: 8px 0;
+        }
+
+        .value-box p {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .btn {
+            background: var(--blue);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+            font-family: Inter, Arial, sans-serif;
+        }
+
+        .btn:hover {
+            background: #2195d6;
+            box-shadow: 0 2px 8px rgba(55, 166, 230, 0.3);
+        }
+
+        @media (max-width: 900px) {
+            .about-hero {
+                flex-direction: column;
+            }
+
+            .about-hero .hero-right {
+                width: 100%;
+                height: 250px;
+            }
+
+            .hero-stats {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .about-hero h1 {
+                font-size: 28px;
+            }
+
+            .hero-stats {
+                gap: 16px;
+            }
+
+            .stat h3 {
+                font-size: 24px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container nav">
+            <!-- Brand Section -->
+            <div class="brand">
+                <div class="logo">
+                    <img src="logo/2.png" alt="Milky Moo Logo" class="logo-img">
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Search Bar -->
+            <div class="search">
+                <input type="text" placeholder="Search" aria-label="Search products">
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="#">Products</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+
+            <!-- Right Side Actions -->
+            <div class="nav-actions">
+                <!-- Cart Icon (for customers only) -->
+                <a href="#" class="cart-icon" id="cartIcon" title="Shopping Cart" style="display: none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61l1.38-7.39H6"></path>
+                    </svg>
+                    <span class="cart-count" style="display: none;">0</span>
+                </a>
+
+                <!-- Guest Login (Show when not logged in) -->
+                <div class="customer-nav-collapsible" id="guestMenu">
+                    <div class="customer-nav-links open only-login">
+                        <a href="login.html">Login</a>
+                        <a href="signup.html">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<div class="container">
+<div class="about-hero">
+    <div class="hero-left">
+        <h1>About Milky Moo</h1>
+        <p>We are committed to bringing the finest quality dairy products directly to your doorstep. Since our inception, we've maintained the highest standards of freshness, quality, and sustainability.</p>
+        <div class="hero-stats">
+            <div class="stat">
+                <h3>500+</h3>
+                <p>Happy Customers</p>
+            </div>
+            <div class="stat">
+                <h3>100%</h3>
+                <p>Fresh & Natural</p>
+            </div>
+            <div class="stat">
+                <h3>24/7</h3>
+                <p>Customer Support</p>
+            </div>
+        </div>
+    </div>
+    <div class="hero-right">
+        <img src="assets/about-image.png" alt="About Milky Moo" style="display: none;">
+        <span>About image placeholder (add assets/about-image.png)</span>
+    </div>
+</div>
+
+<section class="section">
+    <h2>Our Mission</h2>
+    <p>At Milky Moo, our mission is to provide naturally fresh dairy products that enhance the health and wellbeing of families. We believe in sustainable farming practices, ethical sourcing, and delivering nothing but the best to our customers.</p>
+</section>
+
+<section class="section">
+    <h2>Why We Stand Out</h2>
+    <div class="features">
+        <div class="feature">
+            <div class="icon">🌱</div>
+            <div>
+                <h3>Organic & Natural</h3>
+                <p>All our products are sourced from certified organic farms without any artificial additives or preservatives.</p>
+            </div>
+        </div>
+        <div class="feature">
+            <div class="icon">🏆</div>
+            <div>
+                <h3>Quality Certified</h3>
+                <p>Every product undergoes rigorous quality testing to ensure food safety and nutritional standards.</p>
+            </div>
+        </div>
+        <div class="feature">
+            <div class="icon">🌍</div>
+            <div>
+                <h3>Eco-Friendly</h3>
+                <p>We use sustainable packaging and environmentally responsible practices in all our operations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Our Story</h2>
+    <div class="story-timeline">
+        <div class="timeline-item">
+            <div class="timeline-marker">2020</div>
+            <div class="timeline-content">
+                <h3>Founded</h3>
+                <p>Milky Moo was founded with a vision to bring fresh dairy products to local communities.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-marker">2021</div>
+            <div class="timeline-content">
+                <h3>Growth</h3>
+                <p>Expanded our product range and established partnerships with local farmers.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-marker">2022</div>
+            <div class="timeline-content">
+                <h3>Quality Certification</h3>
+                <p>Received ISO certification for quality management and food safety standards.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-marker">2025</div>
+            <div class="timeline-content">
+                <h3>Today</h3>
+                <p>Serving 500+ satisfied customers with daily fresh deliveries across the region.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Our Values</h2>
+    <div class="values-grid">
+        <div class="value-box">
+            <div class="value-icon">💚</div>
+            <h3>Trust</h3>
+            <p>We build lasting relationships through transparency and reliability.</p>
+        </div>
+        <div class="value-box">
+            <div class="value-icon">⭐</div>
+            <h3>Excellence</h3>
+            <p>We strive for excellence in every aspect of our business.</p>
+        </div>
+        <div class="value-box">
+            <div class="value-icon">🤝</div>
+            <h3>Community</h3>
+            <p>We support local farmers and contribute to community growth.</p>
+        </div>
+        <div class="value-box">
+            <div class="value-icon">🌿</div>
+            <h3>Sustainability</h3>
+            <p>We are committed to protecting our environment for future generations.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background: #f9f9f9; padding: 28px; border-radius: 10px; margin: 28px 0; border: 1px solid #eee;">
+    <h2>Join Our Community</h2>
+    <p>Be part of the Milky Moo family and enjoy fresh, natural dairy products delivered right to your door. Get exclusive offers and early access to new products.</p>
+    <div style="margin-top: 20px;">
+        <a href="signup.html" class="btn">Sign Up Today</a>
+    </div>
+</section>
+
+
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section footer-about">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="Milky Moo Logo">
+            </div>
+            <p>Milky Moo! brings together fresh dairy & purity, offering thoughtfully made dairy for calm, everyday living.</p>
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank" class="social-icon" title="Follow us on Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-icon" title="Follow us on Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-section footer-links">
+            <h3>Quick links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section footer-contact">
+            <h3>Contact</h3>
+            <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <a href="tel:+016600000">+01 6600000</a>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <span>Bhaktapur, Nepal</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">✉️</span>
+                <a href="mailto:milkymoo.com.np">milkymoo.com.np</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; All Copyright 2025 by Milky Moo.</p>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const menuToggle = document.querySelector('.menu-toggle');
+        if (navLinks) navLinks.classList.toggle('active');
+        if (menuToggle) menuToggle.classList.toggle('active');
+    }
+
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.nav-links a')) {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (navLinks) navLinks.classList.remove('active');
+            if (menuToggle) menuToggle.classList.remove('active');
+        }
+    });
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (navLinks) navLinks.classList.remove('active');
+            if (menuToggle) menuToggle.classList.remove('active');
+        }
+    });
+</script>
+</body>
+</html>
